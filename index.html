@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>TaskManager</title>
+
+  <style> 
+    body {
+      background-color: lightskyblue;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .newTask {
+      width: 300px;
+      border: 2px solid #333;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      background-color: #fff;
+      display: block;
+      text-align: center;
+    }
+  
+  </style>
+</head>
+
+<body>
+  <h1> Task Manager</h1>
+  
+  <form>
+    <label>Task Name</label>
+    <input type = "text" id = "task">
+
+    <br><br>
+
+    <label> Details</label>
+    <textarea rows = "20" cols = "20" id = "detail"></textarea>
+
+    <br><br>
+    
+    <button onclick="add_task(event)">Add Task</button>
+  </form>
+  
+  <div class = "task" id= "task1">
+
+  </div>
+
+  <script>
+    function add_task (event){
+      event.preventDefault(); 
+      var name= document.getElementById ("task").value;
+      var detail = document.getElementById ("detail").value;
+
+      var task = document.getElementById("task1");
+      
+      var newTask = document.createElement ("div");
+      newTask.className = "newTask";
+      newTask.innerHTML = `<h3>${name}</h3><p>${detail}</p>`;
+
+      task.appendChild (newTask);
+    }    
+  </script>
+
+</body>
+
+</html>
